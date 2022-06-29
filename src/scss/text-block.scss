@@ -1,0 +1,38 @@
+.page-text{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color:$whiteColor;
+        padding: 70px 20px;
+
+        &__wrapper{
+            max-width: 800px;
+            text-align: center;
+        }
+
+        &__text-block{
+            &:not(:last-child){
+                margin-bottom: 70px;
+            }
+        }
+
+        &__title{
+            font-size: 32px;
+            font-weight: 500;
+            color: $blueColor;
+            margin-bottom: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &__text{
+            font-size: 14px;
+            color: $darkGreyColor;
+            line-height: 25px;
+
+            &:not(:last-child){
+                margin-bottom: 10px;
+            }
+        }
+}

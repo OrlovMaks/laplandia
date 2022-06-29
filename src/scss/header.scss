@@ -1,18 +1,79 @@
 .header{
+    position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $whiteColor;
+    @media (min-width: $mobile){
+        align-items: center;
+    }
+
+    @media (max-width: $tablet){
+        padding: 7px 20px;
+    }
 }
 
 .header_logo {
-    flex: 1 1 auto;
+    @media (min-width: $tablet){
+        padding: 10px 0;
+    }
 }
 
 .header_logo__link {
     position: relative;
     z-index: 5;
+    width: 250px;
+
+    @media (max-width: $tablet){
+        width: 150px;
+    }
+}
+
+.header__dropdown{
+    display: none;
+    position: absolute;
+    text-align: center;
+    left: 40%;
+    z-index: 3;
+    transition: all 0.3 ease;
+    transform: translate(-50%, 0);
+    padding-top: 17px;
+}
+
+.header__dropdown-list{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border-radius: 2px;
+
+        li{
+            &:not(:last-child){
+                margin-bottom: 7px;
+            }
+        }
+}
+
+.header__dropdown__link{
+    display: inline-block;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+
+    &:not(:last-child){
+        margin-bottom: 7px;
+    }
+    
+    &:hover{
+        color: $blueColor;
+    }
 }
 
 .header__body{
+    display: flex;
+    background-color: $greyColor;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    
     @media (max-width: $tablet){
         position: fixed;
         top: 0;
@@ -29,18 +90,15 @@
             transform: translateX(0);
         }
 
-        background-color: aqua;
-        padding: 30px;
+        background-color: $greyColor;
+        padding: 0px 30px 0px 30px;
     }
-}
-
-.header__nav {
-
 }
 
 .header__list {
     display: flex;
     margin: 0 -20px -20px 0;
+    justify-content: center;
 
     @media (max-width: $tablet){
         flex-direction: column;
@@ -49,7 +107,12 @@
     }
 }
 
+.header__list>li:hover .header__dropdown{
+    display: block;
+}
+
 .header__item {
+    position: relative;
     padding: 0 20px 20px 0;
 
     @media (max-width: $tablet){
@@ -62,8 +125,22 @@
 }
 
 .header__link{
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    cursor: pointer;
     &:hover{
-        background-color: #000;
+        color: $blueColor;
+    }
+
+    &._active {
+        cursor: default;
+        pointer-events: none;
+
+        color: $blueColor;
+
+        &::before {
+            transform: translateX(0);
+        }
     }
 }
 
@@ -72,11 +149,15 @@
     @media (max-width: $tablet){
         display: block;
         display: block;
-		position: relative;
+		position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
 		width: 30px;
 		height: 18px;
 		cursor: pointer;
 		z-index: 5;
+        background-color: $greyColor;
 		span,
 		&::before,
 		&::after {

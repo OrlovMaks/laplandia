@@ -5,9 +5,13 @@
 })
 
 <body>
+	<div class="preloader">
+	</div>
 	<div class="wrapper">
 		@@include('html/_header.htm',{})
 		<main class="page">
+			@@include('html/_main-slider.htm',{})
+			@@include('html/_main-page-content.htm',{})
 		</main>
 		@@include('html/_footer.htm',{})
 	</div>

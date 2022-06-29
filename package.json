@@ -68,6 +68,8 @@
 		"webpack-stream": "latest"
 	},
 	"dependencies": {
+		"@fancyapps/ui": "^4.0.27",
+		"fancybox": "^3.0.1",
 		"simplebar": "latest"
 	}
 }
