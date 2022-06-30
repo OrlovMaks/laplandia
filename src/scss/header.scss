@@ -31,23 +31,37 @@
 
 .header__dropdown{
     display: none;
-    position: absolute;
+    // position: absolute;
     text-align: center;
-    left: 40%;
+    left: 50%;
     z-index: 3;
     transition: all 0.3 ease;
-    transform: translate(-50%, 0);
     padding-top: 17px;
+
+    @media (min-width: $tablet){
+        // padding-top: 5px;
+        position: absolute;
+        transform: translate(-50%, 0);
+    }
 }
 
 .header__dropdown-list{
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 10px;
     border-radius: 2px;
 
-        li{
-            &:not(:last-child){
-                margin-bottom: 7px;
+    li{
+        &:not(:last-child){
+            margin-bottom: 18px;
+        }
+    }
+
+        @media (min-width: $tablet){
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+
+            li{
+                &:not(:last-child){
+                    margin-bottom: 7px;
+                }
             }
         }
 }
@@ -107,17 +121,28 @@
     }
 }
 
-.header__list>li:hover .header__dropdown{
+body.mouse .header__list>li:hover .header__dropdown{
+    display: block;
+}
+
+body.mouse .arrow{
+    display: none;
+}
+
+body.touch .header__dropdown.open{
     display: block;
 }
 
 .header__item {
     position: relative;
-    padding: 0 20px 20px 0;
+    margin: 0 20px 20px 0;
 
     @media (max-width: $tablet){
         padding: 0;
-
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         &:not(:last-child) {
             margin-bottom: 20px;
         }
@@ -128,6 +153,7 @@
     transition: color 0.3s ease;
     text-transform: uppercase;
     cursor: pointer;
+
     &:hover{
         color: $blueColor;
     }
@@ -142,6 +168,11 @@
             transform: translateX(0);
         }
     }
+}
+
+.header__dropdown-link{
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .header__button{
@@ -193,3 +224,24 @@
 		}
     }
 }
+
+.arrow{
+    position: absolute;
+    right: 55px;
+    top: 4px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid $mainColor;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    transition: transform 0.3s ease;
+}
+
+.header__nav span.parent{
+    margin-right: 20px;
+}
+
+.arrow.active{
+	transform: rotate(-180deg);
+}
+
