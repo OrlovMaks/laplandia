@@ -51,6 +51,8 @@
 }
 
 .footer__social__link{
+    display: flex;
+    align-items: center;
     color: $whiteColor;
     transition: transform 0.3s ease;
 
