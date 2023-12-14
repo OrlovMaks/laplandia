@@ -186,6 +186,7 @@ export class Popup {
 		if (!this._reopen) this.previousActiveElement = document.activeElement;
 
 		this.targetOpen.element = document.querySelector(this.targetOpen.selector);
+		console.log(this.targetOpen.selector)
 
 		if (this.targetOpen.element) {
 			// YouTube

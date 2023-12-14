@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Відгуки"
+})
+
+<body>
+    <div class="wrapper">
+        @@include('html/_header.htm',{})
+        <main class="page">
+            <div class="fixed-background">
+                <div class="fixed-background__image">
+                    <img src="../img/images/fixedBackgroundReviews.jpg" alt="background">
+                </div>
+            </div>
+            @@include('html/_reviews-page-content.htm',{})
+        </main>
+        @@include('html/_footer.htm',{})
+    </div>
+    @@include('html/_js.htm',{})
+    @@include('html/_popup.htm',{})
+</body>
+
+</html>

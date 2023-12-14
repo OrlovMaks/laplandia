@@ -1,18 +1,203 @@
-//====================================================================================================
+.header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $whiteColor;
+    @media (min-width: $mobile){
+        align-items: center;
+    }
 
-//====================================================================================================
+    @media (max-width: $tablet){
+        padding: 7px 20px;
+    }
+}
 
-//Burger
-/*
-.icon-menu {
-	display: none;
-	@media (max-width: $mobile) {
-		display: block;
-		position: relative;
+.header_logo {
+    @media (min-width: $tablet){
+        padding: 10px 0;
+    }
+}
+
+.header_logo__link {
+    position: relative;
+    z-index: 5;
+    width: 250px;
+
+    @media (max-width: $tablet){
+        width: 150px;
+    }
+}
+
+.header__dropdown{
+    display: none;
+    text-align: center;
+    left: 50%;
+    z-index: 3;
+    transition: all 0.3 ease;
+    padding-top: 17px;
+
+    @media (min-width: $tablet){
+        position: absolute;
+        transform: translate(-50%, 0);
+    }
+}
+
+.header__dropdown-list{
+    border-radius: 2px;
+
+    li{
+        &:not(:last-child){
+            margin-bottom: 18px;
+        }
+    }
+
+        @media (min-width: $tablet){
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+
+            li{
+                &:not(:last-child){
+                    margin-bottom: 7px;
+                }
+            }
+        }
+}
+
+.header__dropdown__link{
+    display: inline-block;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+
+    &:not(:last-child){
+        margin-bottom: 7px;
+    }
+    
+    &:hover{
+        color: $blueColor;
+    }
+}
+
+.header__body{
+    display: flex;
+    background-color: $greyColor;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    
+    @media (max-width: $tablet){
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        overflow: auto;
+        z-index: 3;
+        transition: transform 0.3s ease;
+        transform: translateX(100%);
+
+        .menu-open &{
+            transform: translateX(0);
+        }
+
+        background-color: $greyColor;
+        padding: 0px 30px 0px 30px;
+    }
+}
+
+.header__list {
+    display: flex;
+    margin: 0 -20px -20px 0;
+    justify-content: center;
+
+    @media (max-width: $tablet){
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+}
+
+body.mouse .header__list>li:hover .header__dropdown{
+    display: block;
+}
+
+body.mouse .arrow{
+    display: none;
+}
+
+body.touch .header__dropdown.open{
+    display: block;
+}
+
+.header__item {
+    position: relative;
+    margin: 0 20px 20px 0;
+
+    @media (max-width: $tablet){
+        padding: 0;
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.header__link{
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover{
+        color: $blueColor;
+    }
+
+    &._active {
+        cursor: default;
+        pointer-events: none;
+
+        color: $blueColor;
+
+        &::before {
+            transform: translateX(0);
+        }
+    }
+
+    @media (max-width: $tablet){
+        font-size: 18px;
+    }
+}
+
+.header__dropdown-link{
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 16px;
+
+    @media (max-width: $tablet){
+        font-size: 18px;
+    }
+}
+
+.header__button{
+    display: none;
+    @media (max-width: $tablet){
+        display: block;
+        display: block;
+		position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
 		width: 30px;
 		height: 18px;
 		cursor: pointer;
 		z-index: 5;
+        background-color: $greyColor;
 		span,
 		&::before,
 		&::after {
@@ -46,6 +231,26 @@
 				bottom: calc(50% - 1px);
 			}
 		}
-	}
+    }
 }
-*/
+
+.arrow{
+    position: absolute;
+    right: 50px;
+    top: 4px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid $mainColor;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    transition: transform 0.3s ease;
+}
+
+.header__nav span.parent{
+    margin-right: 20px;
+}
+
+.arrow.active{
+	transform: rotate(-180deg);
+}
+
